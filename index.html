@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Discipline</title>
+<meta name="theme-color" content="#1f5fe0">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script>try{var d=document.documentElement;d.dataset.theme=localStorage.dsc_theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');d.dataset.fs=localStorage.dsc_fs||'m'}catch(e){}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#rank"><img src="logo.svg" alt="" width="34" height="34"><span>Discipline</span></a>
+  <nav id="nav" aria-label="Principal"></nav>
+  <div class="tools">
+    <button id="fs" class="ghost" title="Tamanho da fonte"></button>
+    <button id="th" class="ghost" title="Tema claro ou escuro"></button>
+  </div>
+</header>
+<main id="app"></main>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
