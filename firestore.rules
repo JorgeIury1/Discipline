@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // nicks: leitura pública (checar se está livre) e criação só se ainda não existe
+    match /nicks/{nick} {
+      allow read: if true;
+      allow create: if request.auth != null
+                    && request.resource.data.uid == request.auth.uid;
+    }
+
+    // perfis: qualquer logado lê (ranking); só o dono escreve
+    match /users/{uid} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null && request.auth.uid == uid;
+
+      match /forms/{formId} {
+        allow read: if request.auth != null;
+        allow create: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+  }
+}
